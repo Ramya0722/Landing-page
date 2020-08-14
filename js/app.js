@@ -37,40 +37,6 @@ navElements.forEach(list => {
   navbarlist.insertAdjacentHTML("beforeend", navbarlistElements)
 })
 
-function getActiveElem() {
-  let isInViewport = function(elem) {
-    let bounding = elem.getBoundingClientRect();
-    return (
-      bounding.top <= 50 &&
-      bounding.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      bounding.right <=
-        (window.innerWidth || document.documentElement.clientWidth)
-    );
-  };
-}
-// Add class 'active' to section when near top of viewport
-function setActive(){
-  window.addEventListener("scroll", function(event){
-    let section = getActiveElem();
-    section.classList.add("your-active-class");
-    for (let item of sections) {
-      if(item.id !=section.id & item.classList.contains("your-active-class")){
-        item.classlist.remove("your-active-class");
-      }
-    }
-    const active = document.querySelector('li[data-nav="' + section.id + '"]');
-        active.classList.add("active__link");
-        // remove from other headers
-        const headers = document.querySelectorAll(".menu__link");
-        for (let item of headers) {
-            console.log(item);
-            if (item.dataset.nav != active.dataset.nav & item.classList.contains("active__link")) {
-                item.classList.remove("active__link");
-            }
-          };
-  });
-};
 
 // Scroll to anchor ID using scrollTO event
 function scrollToClick(){
@@ -93,4 +59,3 @@ function scrollToClick(){
 scrollToClick();
 
 // Set sections as active
-getActiveElem();
