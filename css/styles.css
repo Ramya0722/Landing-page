@@ -74,6 +74,7 @@ section {
     display: inline-block;
 }
 
+.navbar__menu li,
 .navbar__menu .menu__link {
     display: inline-block;
     padding: 1em;
@@ -82,10 +83,16 @@ section {
     color: #fff;
 }
 
+.navbar__menu li:hover,
 .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+
+.navbar__menu li:hover a,
+.navbar__menu .menu__link:hover a {
+  color: #fff;
 }
 
 .navbar__menu .active__link{
